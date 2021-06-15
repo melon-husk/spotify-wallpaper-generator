@@ -30,6 +30,7 @@ document.addEventListener("loggedIn", () => {
       console.error(err);
     }
   );
+
   spotifyApi.getUserPlaylists().then(
     function (data) {
       console.log("Playlists", data.body);
