@@ -22,9 +22,17 @@ loginButton?.addEventListener("click", () => {
 });
 
 document.addEventListener("loggedIn", () => {
-  spotifyApi.getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE").then(
+  spotifyApi.getMe().then(
     function (data) {
-      console.log("Artist albums", data.body);
+      console.log("User", data.body);
+    },
+    function (err) {
+      console.error(err);
+    }
+  );
+  spotifyApi.getUserPlaylists().then(
+    function (data) {
+      console.log("Playlists", data.body);
     },
     function (err) {
       console.error(err);
