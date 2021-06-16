@@ -19,7 +19,7 @@ if (token) {
 
 function login(): Promise<string> {
   const popup = window.open(
-    `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${window.location.href}&scope=${scopes}&show_dialog=true`,
+    `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${window.location.href}&scope=${scopes}&show_dialog=false`,
     "Login with Spotify",
     "width=800,height=600"
   );

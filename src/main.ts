@@ -1,19 +1,35 @@
-import login from "./login";
-import "./style.css";
-
 import SpotifyWebApi from "spotify-web-api-node";
+import displayImagesOnCanvas from "./displayImagesOnCanvas";
+import login from "./login";
+import "tailwindcss/tailwind.css";
+
 const spotifyApi = new SpotifyWebApi();
-const canvas = <HTMLCanvasElement>document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+// Setting up canvas
+const realCanvas = <HTMLCanvasElement>document.getElementById("real-canvas");
+const rctx = realCanvas.getContext("2d");
+const downloadCanvas = <HTMLCanvasElement>(
+  document.getElementById("download-canvas")
+);
+const dctx = downloadCanvas.getContext("2d");
+
 const loggedInEvent = new Event("loggedIn");
+///Setting up html elements
+const loginButton = document.getElementById("login");
+const loadImageButton = document.getElementById("load-image");
+const downloadImage = document.getElementById("download-image");
+const numberOfColumns = <HTMLInputElement>document.getElementById("columns");
+const numberOfRows = <HTMLInputElement>document.getElementById("rows");
+
+let imageArray: string[] = [];
 let loggedInState = false;
 let accessToken: string | null = null;
-const loginButton = document.getElementById("login");
-const getMeButton = document.getElementById("get-me");
 
-if (ctx) {
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
+if (rctx && dctx) {
+  dctx.canvas.width = window.innerWidth * window.devicePixelRatio;
+  dctx.canvas.height = window.innerHeight * window.devicePixelRatio;
+
+  rctx.canvas.width = window.innerWidth;
+  rctx.canvas.height = window.innerHeight;
 }
 
 loginButton?.addEventListener("click", () => {
@@ -26,11 +42,26 @@ loginButton?.addEventListener("click", () => {
   });
 });
 
-getMeButton?.addEventListener("click", () => {
+loadImageButton?.addEventListener("click", () => {
   if (loggedInState) {
+    rctx?.clearRect(0, 0, rctx.canvas.width, rctx.canvas.height);
+    dctx?.clearRect(0, 0, dctx.canvas.width, dctx.canvas.height);
+
     spotifyApi.getUserPlaylists({ limit: 50 }).then(
       (data) => {
-        console.log(data);
+        data.body.items.forEach((item) => {
+          if (item.images.length > 0) {
+            const { url } = item.images[0];
+            imageArray.push(url);
+          }
+        });
+        displayImagesOnCanvas(
+          rctx!,
+          dctx!,
+          Number(numberOfColumns.value),
+          Number(numberOfRows.value),
+          imageArray
+        );
       },
       (error) => {
         console.log(error);
@@ -41,21 +72,14 @@ getMeButton?.addEventListener("click", () => {
 
 document.addEventListener("loggedIn", () => {
   loggedInState = true;
-  // spotifyApi.getMe().then(
-  //   function (data) {
-  //     console.log("User", data.body);
-  //   },
-  //   function (err) {
-  //     console.error(err);
-  //   }
-  // );
+});
 
-  // spotifyApi.getUserPlaylists().then(
-  //   function (data) {
-  //     console.log("Playlists", data.body);
-  //   },
-  //   function (err) {
-  //     console.error(err);
-  //   }
-  // );
+downloadImage?.addEventListener("click", () => {
+  downloadImage.setAttribute("download", "image.png");
+  downloadImage.setAttribute(
+    "href",
+    dctx!.canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream")
+  );
 });
