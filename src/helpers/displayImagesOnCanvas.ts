@@ -27,8 +27,7 @@ function displayImagesOnCanvas(
   let currentHeight = 0;
   let dcurrentWidth = 0;
   let dcurrentHeight = 0;
-  // const columns = 2;
-  // const rows = 6;
+
   const loadedImages: HTMLImageElement[] = [];
   const totalImages = columns * rows;
 

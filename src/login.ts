@@ -1,3 +1,6 @@
+const loginButton = document.getElementById("login-btn");
+import "tailwindcss/tailwind.css";
+
 declare global {
   interface Window {
     spotifyCallback: (payload: string) => void;
@@ -31,4 +34,12 @@ function login(): Promise<string> {
   });
 }
 
-export default login;
+loginButton?.addEventListener("click", () => {
+  login().then((token) => {
+    sessionStorage.clear();
+    sessionStorage.setItem("token", token);
+    location.href = "index.html";
+  });
+});
+
+export {};
