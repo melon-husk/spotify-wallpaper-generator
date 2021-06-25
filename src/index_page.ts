@@ -10,7 +10,7 @@ import handleInputOnChange from "./helpers/handleInputOnChange";
 import handleOnShuffleBtnClick from "./helpers/handleOnShuffleBtnClick";
 
 const spotifyApi = new SpotifyWebApi();
-
+//TODO Fix page behavior in landscape mode on mobile devices
 // Setting up canvas
 const visibleCanvas = <HTMLCanvasElement>document.getElementById("real-canvas");
 const visibleCanvasContext = visibleCanvas.getContext("2d");
