@@ -8,12 +8,7 @@ declare global {
 }
 
 const clientId = "2505559864af412a8c083c15e558d6ea";
-const scopes = [
-  "playlist-read-private",
-  "playlist-read-collaborative",
-  "user-read-email",
-  "user-read-private",
-];
+const scopes = ["playlist-read-private", "playlist-read-collaborative"];
 const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
 
 if (token) {
