@@ -43,14 +43,11 @@ function displayImagesOnCanvas(
   ///////////////////////////////////////////
 
   document.addEventListener("images-loaded", () => {
-    console.log("images loaded", loadedImages);
-
     let imageWidth = rctx.canvas.width / columns;
     let dimageWidth = dctx.canvas.width / columns;
     let imageHeight = imageWidth;
     let dimageHeight = dimageWidth;
 
-    console.log(imageHeight);
     rctx.canvas.height = imageHeight * rows;
     dctx.canvas.height = dimageHeight * rows;
     loadedImages.forEach((image) => {

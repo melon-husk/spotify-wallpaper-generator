@@ -16,7 +16,6 @@ function hydrateImageUrlArray(
           }
         });
         if (imgArray.length < 1) reject(new Error("Array is empty"));
-        console.log(imgArray);
         resolve(imgArray);
       },
       function (error) {
