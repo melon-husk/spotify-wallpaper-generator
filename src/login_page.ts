@@ -36,9 +36,13 @@ function login(): Promise<string> {
 
 loginButton?.addEventListener("click", () => {
   login().then((token) => {
-    sessionStorage.clear();
-    sessionStorage.setItem("token", token);
-    location.href = "index.html";
+    if (token) {
+      sessionStorage.clear();
+      sessionStorage.setItem("token", token);
+      location.href = "index.html";
+    } else {
+      location.href = "login.html";
+    }
   });
 });
 

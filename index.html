@@ -8,6 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate Wallpaper from Spotify" />
     <title>index</title>
   </head>
   <body class="bg-[#0F0C0C] overflow-x-hidden">
@@ -28,7 +29,7 @@
           >
             Shuffle
           </button>
-          <div
+          <label
             class="
               bg-[#1DB954]
               rounded-md
@@ -38,10 +39,11 @@
               text-center
               cursor-default
             "
+            for="col-num"
           >
             Columns
-          </div>
-          <div
+          </label>
+          <label
             class="
               bg-[#1DB954]
               rounded-md
@@ -51,9 +53,10 @@
               text-center
               cursor-default
             "
+            for="col-row"
           >
             Rows
-          </div>
+          </label>
         </div>
         <div class="flex flex-col" style="flex-basis: 100%; flex: 1">
           <button
@@ -151,35 +154,6 @@
           </div>
         </div>
       </div>
-      <!-- <button id="login" class="p-2 m-1 text-xl bg-blue-400 rounded-md">
-        Login
-      </button>
-      <button id="load-image" class="p-2 m-1 text-xl bg-blue-400 rounded-md">
-        Load Image
-      </button>
-      <button class="p-2 m-1 text-xl bg-blue-400 rounded-md">
-        <a id="download-image" href="#">Download Image</a></button
-      ><br />
-      <div>
-        <label for="columns" class="text-xl">Columns:</label>
-        <input
-          type="number"
-          id="columns"
-          min="2"
-          max="5"
-          value="3"
-          class="border border-black rounded"
-        />
-        <label for="rows" class="text-xl">Rows:</label>
-        <input
-          type="number"
-          id="rows"
-          min="3"
-          max="10"
-          value="6"
-          class="border border-black rounded"
-        />
-      </div> -->
     </div>
     <!-- removes html spin box from numbered inputs -->
     <style>
@@ -194,6 +168,6 @@
     </style>
     <canvas id="real-canvas" oncontextmenu="return false;"></canvas>
     <canvas id="download-canvas" style="display: none"></canvas>
-    <script type="module" src="/src/index.ts"></script>
+    <script type="module" src="/src/index_page.ts"></script>
   </body>
 </html>
