@@ -1,7 +1,7 @@
 import showError from "./showError";
 
 function downloadBtnClick(
-  downloadBtn: HTMLElement,
+  downloadBtn: HTMLLinkElement,
   downloadableCanvasContext: CanvasRenderingContext2D
 ) {
   try {

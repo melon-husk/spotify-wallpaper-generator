@@ -24,6 +24,9 @@ const downloadableCanvasContext = downloadableCanvas.getContext("2d");
 ///Setting up html elements
 const shuffleBtn = document.getElementById("shuffle-btn");
 const downloadBtn = document.getElementById("download-btn");
+const downloadBtnLink = <HTMLLinkElement>(
+  document.getElementById("download-btn-link")
+);
 const columnAddBtn = document.getElementById("column-add-btn");
 const columnRemoveBtn = document.getElementById("column-remove-btn");
 const rowAddBtn = document.getElementById("row-add-btn");
@@ -124,5 +127,6 @@ shuffleBtn?.addEventListener("click", () => {
 
 ////Handling Download button click//////
 downloadBtn?.addEventListener("click", () => {
-  downloadBtnClick(downloadBtn, downloadableCanvasContext!);
+  downloadBtnLink.click();
+  downloadBtnClick(downloadBtnLink!, downloadableCanvasContext!);
 });
