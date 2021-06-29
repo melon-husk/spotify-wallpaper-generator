@@ -1,10 +1,15 @@
 import SpotifyWebApi from "spotify-web-api-node";
+import showError from "./showError";
 
 function login(spotifyApi: SpotifyWebApi): boolean {
-  const token = sessionStorage.getItem("token");
-  if (token) {
-    spotifyApi.setAccessToken(token);
-    return true;
+  try {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      spotifyApi.setAccessToken(token);
+      return true;
+    }
+  } catch (error: any) {
+    showError(error);
   }
   return false;
 }

@@ -8,6 +8,7 @@ import handleIncrementDecrement from "./helpers/handleIncrementDecrement";
 import hydrateImageUrlArray from "./helpers/hydrateImageUrlArray";
 import handleInputOnChange from "./helpers/handleInputOnChange";
 import handleOnShuffleBtnClick from "./helpers/handleOnShuffleBtnClick";
+import showError from "./helpers/showError";
 
 const spotifyApi = new SpotifyWebApi();
 //TODO Fix page behavior in landscape mode on mobile devices
@@ -55,16 +56,28 @@ document.addEventListener("login", () => {
       const cols = Number(numberOfColumns.value);
       const rows = Number(numberOfRows.value);
       imageUrls = imageUrlsArray;
-      loadWallpaper(
-        cols,
-        rows,
-        loggedInState,
-        imageUrls,
-        visibleCanvasContext!,
-        downloadableCanvasContext!
-      );
+      ////minimum number of playlist images is 4
+      if (imageUrls.length === 4) {
+        loadWallpaper(
+          2,
+          2,
+          loggedInState,
+          imageUrls,
+          visibleCanvasContext!,
+          downloadableCanvasContext!
+        );
+      } else {
+        loadWallpaper(
+          cols,
+          rows,
+          loggedInState,
+          imageUrls,
+          visibleCanvasContext!,
+          downloadableCanvasContext!
+        );
+      }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => showError(error));
 });
 
 if (login(spotifyApi)) {

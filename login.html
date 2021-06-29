@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
   </head>
@@ -30,9 +33,7 @@
           sm:mx-28
           md:mx-40
           lg:mx-64
-          sm:max-h-[40rem]
-          sm:rounded-lg
-          sm:px-14
+          sm:max-h-[40rem] sm:rounded-lg sm:px-14
         "
       >
         <img
@@ -54,6 +55,9 @@
             rounded-md
             px-14
             py-2
+            hover:scale-[1.05] hover:bg-[#189945]
+            transform
+            transition
           "
           id="login-btn"
         >
