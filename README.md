@@ -3,6 +3,8 @@
 
 You can this web app to generate custom wallpaper from your Spotify Playlist.
 
+[Try it out here](https://marjan-spotify-project.vercel.app/)
+
 ## Installation
 
 ```bash
