@@ -1,4 +1,5 @@
-![Animation](https://user-images.githubusercontent.com/30780724/124355349-45a54f00-dc2e-11eb-9689-2e3629d7e7af.gif)
+![animation_v2](https://user-images.githubusercontent.com/30780724/124360413-44345080-dc47-11eb-8915-60555c1f8dbb.gif)
+
 # Spotify Wallpaper Generator
 
 You can this web app to generate custom wallpaper from your Spotify Playlist.
