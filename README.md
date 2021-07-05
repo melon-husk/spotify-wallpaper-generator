@@ -4,7 +4,7 @@
 
 You can this web app to generate custom wallpaper from your Spotify Playlist.
 
-[Try it out here](https://spotify-wallpaper-generator.vercel.app/)
+[Try it out here](https://spotify-wallpaper-generator.vercel.app/login.html)
 
 ## Installation
 
