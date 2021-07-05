@@ -23,63 +23,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
   </head>
-  <body>
+  <body
+    class="
+      font-sans
+      text-white
+      bg-[#0F0C0C]
+      grid
+      sm:py-8
+      md:py-16
+      lg:py-20
+      place-items-center
+      h-screen
+    "
+  >
     <div
       class="
-        font-sans
-        text-white
-        bg-[#0F0C0C]
-        h-screen
-        sm:py-8
-        md:py-16
-        lg:py-20
-        grid
-        place-items-center
+        bg-[#191414]
+        flex flex-col
+        content-between
+        h-full
+        px-10
+        sm:mx-28
+        md:mx-40
+        lg:mx-64
+        sm:max-h-[40rem] sm:rounded-lg sm:px-14
       "
     >
-      <div
+      <img
+        src="/assets/images/Spotify_Logo_RGB_Green.png"
+        alt="spotify logo"
+        class="mx-auto mt-14 w-72 sm:mt-6"
+      />
+      <p class="max-w-xs text-4xl text-center mt-14">
+        Generate Wallpaper Using Your Spotify Playlists
+      </p>
+      <button
         class="
-          bg-[#191414]
-          flex flex-col
-          content-between
-          h-full
-          px-10
-          sm:mx-28
-          md:mx-40
-          lg:mx-64
-          sm:max-h-[40rem] sm:rounded-lg sm:px-14
+          bg-[#1DB954]
+          text-3xl
+          self-start
+          mx-auto
+          mt-20
+          sm:mt-24
+          rounded-md
+          px-14
+          py-2
+          hover:scale-[1.05] hover:bg-[#189945]
+          transform
+          transition
         "
+        id="login-btn"
       >
-        <img
-          src="/assets/images/Spotify_Logo_RGB_Green.png"
-          alt="spotify logo"
-          class="mx-auto mt-14 w-72 sm:mt-6"
-        />
-        <p class="max-w-xs text-4xl text-center mt-14">
-          Generate Wallpaper Using Your Spotify Playlists
-        </p>
-        <button
-          class="
-            bg-[#1DB954]
-            text-3xl
-            self-start
-            mx-auto
-            mt-20
-            sm:mt-24
-            rounded-md
-            px-14
-            py-2
-            hover:scale-[1.05] hover:bg-[#189945]
-            transform
-            transition
-          "
-          id="login-btn"
-        >
-          Log in
-        </button>
-        <div class="mt-2 text-lg font-medium text-center">
-          Made with <span style="color: #e25555">&hearts;</span> for Marjan
-        </div>
+        Log in
+      </button>
+      <div class="mt-2 mb-4 text-lg font-medium text-center">
+        Made with <span style="color: #e25555">&hearts;</span> for Marjan
       </div>
     </div>
     <script type="module" src="/src/login_page.ts"></script>
